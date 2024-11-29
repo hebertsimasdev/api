@@ -7,12 +7,14 @@ const db = require("./db");
 
 app.get("/clientes", (request, response)=>{
     response.json(db.retornaCliente());
-})
-
-app.get((request, response)=>{
-
-
 });
+
+app.get("/clientes/:id", (request, response)=>{
+    const id = request.params.id;
+    response.json(db.listaCliente(id));
+});
+
+
 
 app.get("/", (request, response)=>{
     response .json(
